@@ -15,19 +15,31 @@
       <a href="Resume-Vedant-KOTHARI.pdf" class="btn">Resume</a>
       <a href="https://www.linkedin.com/in/vedantkothari9" target="_blank" class="btn outline">LinkedIn</a>
     </div>
+    <button class="dark-toggle">Protect your eyes</button>
   </header>
 
   <main>
     <section class="grid">
       <a href="experience.html" class="card">
         <h2>Experience</h2>
+        <div class="item-list">
+          <p>Image Art Gallery</p>
+          <p>NCC Telecom</p>
+          <p>Paranjape &amp; Co.</p>
+        </div>
       </a>
+
       <a href="projects.html" class="card">
         <h2>Projects</h2>
+        <div class="item-list">
+          <p>F1 Predictor</p>
+          <p>SMU-X Capstone</p>
+        </div>
       </a>
+
       <div class="card">
         <h2>Skills</h2>
-        <div>
+        <div class="item-list">
           <p>Python</p>
           <p>R</p>
           <p>SQL</p>
@@ -47,5 +59,15 @@
   <footer>
     <p>© 2025 Vedant Kothari</p>
   </footer>
+
+  <script>
+    const btn = document.querySelector('.dark-toggle');
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      btn.textContent = document.body.classList.contains('dark')
+        ? 'Blast it!'
+        : 'Protect your eyes';
+    });
+  </script>
 </body>
 </html>
