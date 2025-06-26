@@ -6,7 +6,13 @@
   --text: #222;
   --text-light: #f1f1f1;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg-light);
@@ -19,18 +25,6 @@ body.dark {
   background: #1e1e1e;
   color: var(--text-light);
 }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* Dark-toggle button */
-.dark-toggle {
-  position: fixed;
-  top: 1rem; right: 1rem;
-  padding: 0.4rem 1rem;
-  border: none; border-radius: 20px;
-  background: #333; color: #fff;
-  cursor: pointer; z-index: 1000;
-}
 
 /* Hero */
 .hero {
@@ -41,13 +35,9 @@ a:hover { text-decoration: underline; }
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.hero h1.revealed {
-  opacity: 1;
-  transform: translateY(0);
+  /* always visible—remove any reveal hiding */
+  opacity: 1 !important;
+  transform: none !important;
 }
 .hero .tagline {
   font-size: 1.2rem;
@@ -55,6 +45,27 @@ a:hover { text-decoration: underline; }
 }
 .hero .cta a {
   margin: 0 0.5rem;
+}
+
+/* Dark-mode toggle */
+.dark-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 1rem;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+/* Move toggle down on small screens to avoid notch overlap */
+@media (max-width: 600px) {
+  .dark-toggle {
+    top: auto;
+    bottom: 1rem;
+  }
 }
 
 /* Sticky nav */
@@ -67,6 +78,8 @@ a:hover { text-decoration: underline; }
   gap: 2rem;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #ddd;
+  overflow-x: auto;             /* allow horizontal scroll */
+  white-space: nowrap;
   z-index: 500;
 }
 .sticky-nav a {
@@ -81,11 +94,14 @@ a:hover { text-decoration: underline; }
   height: 3px;
   background: var(--accent);
 }
+body.dark .sticky-nav {
+  background: #2c2c2c;
+}
 
-/* Sections */
+/* General sections */
 .section {
   background: var(--bg-section);
-  padding: 4rem 1rem;
+  padding: 5rem 1rem 4rem;     /* extra top padding to clear nav */
   max-width: 800px;
   margin: auto;
   opacity: 0;
@@ -107,9 +123,13 @@ a:hover { text-decoration: underline; }
 .section h2::after {
   content: '';
   display: block;
-  width: 50px; height: 3px;
+  width: 50px;
+  height: 3px;
   background: var(--accent);
   margin: 0.5rem auto 1rem;
+}
+body.dark .section {
+  background: #2b2b2b;
 }
 
 /* Accordion */
@@ -120,7 +140,6 @@ a:hover { text-decoration: underline; }
   border-radius: 8px;
   border: 1px solid #ddd;
   margin: 0.5rem 0;
-  position: relative;
   transition: background 0.3s;
 }
 .accordion.active {
@@ -128,7 +147,8 @@ a:hover { text-decoration: underline; }
 }
 .accordion .date {
   position: absolute;
-  right: 1rem; top: 1rem;
+  right: 1rem;
+  top: 1rem;
   font-size: 0.9rem;
   color: #555;
 }
@@ -140,6 +160,11 @@ a:hover { text-decoration: underline; }
   margin-bottom: 0.5rem;
   background: white;
   padding: 0 1rem;
+}
+body.dark .panel {
+  background: #333;
+  color: var(--text-light);
+  border-left-color: var(--accent);
 }
 .panel ul {
   margin: 1rem 0;
@@ -164,6 +189,10 @@ a:hover { text-decoration: underline; }
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   font-weight: 500;
 }
+body.dark .tags span {
+  background: #444;
+  color: var(--text-light);
+}
 
 /* Contact & Footer */
 #contact p {
@@ -174,4 +203,8 @@ footer {
   background: var(--bg-section);
   color: #777;
   font-size: 0.9rem;
+}
+body.dark footer {
+  background: #2c2c2c;
+  color: var(--text-light);
 }
