@@ -1,9 +1,10 @@
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
-  background: #fff8f0;
+  background: #eef6fb;
   color: #222;
   transition: background 0.3s, color 0.3s;
+  text-align: center;
 }
 
 .dark {
@@ -12,9 +13,8 @@ body {
 }
 
 header {
-  text-align: center;
   padding: 3rem 1rem 2rem;
-  background: #ffe7cc;
+  background: #d6eaff;
 }
 
 .dark header {
@@ -43,7 +43,7 @@ h1 {
 .btn {
   padding: 0.6rem 1.2rem;
   border-radius: 30px;
-  background: #ff8c42;
+  background: #0077cc;
   color: white;
   text-decoration: none;
   font-weight: 600;
@@ -51,17 +51,17 @@ h1 {
 }
 
 .btn:hover {
-  background: #e8752e;
+  background: #005fa3;
 }
 
 .btn.outline {
   background: transparent;
-  border: 2px solid #ff8c42;
-  color: #ff8c42;
+  border: 2px solid #0077cc;
+  color: #0077cc;
 }
 
 .btn.outline:hover {
-  background: #ff8c42;
+  background: #0077cc;
   color: white;
 }
 
@@ -109,7 +109,6 @@ h1 {
 }
 
 .contact {
-  text-align: center;
   padding: 2rem 1rem 3rem;
 }
 
