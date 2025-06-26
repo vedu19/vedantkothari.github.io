@@ -7,17 +7,12 @@
   --text-light: #f1f1f1;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Reset & Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg-light);
   color: var(--text);
-  text-align: center;
   scroll-behavior: smooth;
   transition: background 0.3s, color 0.3s;
 }
@@ -25,29 +20,9 @@ body.dark {
   background: #1e1e1e;
   color: var(--text-light);
 }
+a { color: var(--accent); text-decoration: none; }
 
-/* Hero */
-.hero {
-  background: var(--bg-hero);
-  padding: 6rem 1rem 4rem;
-}
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  /* always visible—remove any reveal hiding */
-  opacity: 1 !important;
-  transform: none !important;
-}
-.hero .tagline {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-.hero .cta a {
-  margin: 0 0.5rem;
-}
-
-/* Dark-mode toggle */
+/* Dark‐mode Toggle */
 .dark-toggle {
   position: fixed;
   top: 1rem;
@@ -60,15 +35,33 @@ body.dark {
   cursor: pointer;
   z-index: 1000;
 }
-/* Move toggle down on small screens to avoid notch overlap */
-@media (max-width: 600px) {
-  .dark-toggle {
-    top: auto;
-    bottom: 1rem;
-  }
-}
 
-/* Sticky nav */
+/* Hero */
+.hero {
+  background: var(--bg-hero);
+  text-align: center;
+  padding: 6rem 1rem 4rem;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  opacity: 1 !important;
+  transform: none !important;
+}
+.hero .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.hero .cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.hero .cta a { margin: 0 0.5rem; }
+
+/* Sticky Nav */
 .sticky-nav {
   position: sticky;
   top: 0;
@@ -78,7 +71,7 @@ body.dark {
   gap: 2rem;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #ddd;
-  overflow-x: auto;             /* allow horizontal scroll */
+  overflow-x: auto;
   white-space: nowrap;
   z-index: 500;
 }
@@ -98,10 +91,10 @@ body.dark .sticky-nav {
   background: #2c2c2c;
 }
 
-/* General sections */
+/* Sections */
 .section {
   background: var(--bg-section);
-  padding: 5rem 1rem 4rem;     /* extra top padding to clear nav */
+  padding: 5rem 1rem 4rem;
   max-width: 800px;
   margin: auto;
   opacity: 0;
@@ -112,9 +105,7 @@ body.dark .sticky-nav {
   opacity: 1;
   transform: translateY(0);
 }
-.section + .section {
-  margin-top: 2rem;
-}
+.section + .section { margin-top: 2rem; }
 .section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -140,11 +131,10 @@ body.dark .section {
   border-radius: 8px;
   border: 1px solid #ddd;
   margin: 0.5rem 0;
+  position: relative;
   transition: background 0.3s;
 }
-.accordion.active {
-  background: #e6f0ff;
-}
+.accordion.active { background: #e6f0ff; }
 .accordion .date {
   position: absolute;
   right: 1rem;
@@ -157,8 +147,8 @@ body.dark .section {
   overflow: hidden;
   transition: max-height 0.3s ease;
   border-left: 4px solid var(--accent);
-  margin-bottom: 0.5rem;
   background: white;
+  margin-bottom: 0.5rem;
   padding: 0 1rem;
 }
 body.dark .panel {
@@ -195,9 +185,7 @@ body.dark .tags span {
 }
 
 /* Contact & Footer */
-#contact p {
-  margin: 0.5rem 0;
-}
+#contact p { margin: 0.5rem 0; }
 footer {
   padding: 2rem 1rem;
   background: var(--bg-section);
@@ -207,4 +195,23 @@ footer {
 body.dark footer {
   background: #2c2c2c;
   color: var(--text-light);
+}
+
+/* -------------------
+   Responsive Tweaks
+------------------- */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero .cta { flex-direction: column; gap: 0.5rem; }
+  .sticky-nav { gap: 1rem; padding: 0.5rem; }
+  .section { padding: 4rem 1rem; }
+}
+
+@media (max-width: 480px) {
+  .dark-toggle { bottom: 1rem; top: auto; }
+  .accordion .date { position: static; margin-top: 0.5rem; text-align: right; }
+  .panel { padding: 0.5rem 1rem; }
+  .tags span { padding: 0.3rem 0.6rem; font-size: 0.9rem; }
+  .hero h1 { font-size: 2rem; }
+  .sticky-nav { font-size: 0.9rem; }
 }
