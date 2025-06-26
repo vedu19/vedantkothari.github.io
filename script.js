@@ -20,20 +20,18 @@ toggle.onclick = () => {
 };
 
 // Smooth scroll with offset for sticky nav
-document.querySelectorAll('.sticky-nav a, .mobile-nav select').forEach(element => {
-  if (element.tagName === 'A') {
-    element.onclick = e => {
-      e.preventDefault();
-      const target = document.querySelector(element.getAttribute('href'));
-      const offset = 80; // Height of sticky nav
-      const targetPosition = target.offsetTop - offset;
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    };
-  }
+document.querySelectorAll('.sticky-nav a').forEach(element => {
+  element.onclick = e => {
+    e.preventDefault();
+    const target = document.querySelector(element.getAttribute('href'));
+    const offset = 80; // Height of sticky nav
+    const targetPosition = target.offsetTop - offset;
+    
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  };
 });
 
 // Improved scroll spy
