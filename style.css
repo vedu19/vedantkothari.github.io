@@ -7,8 +7,6 @@ body {
   transition: background 0.3s, color 0.3s;
   text-align: center;
 }
-a { color: #0077cc; }
-.dark a { color: #66bfff; }
 
 .dark {
   background: #1e1e1e;
@@ -19,6 +17,7 @@ header {
   padding: 3rem 1rem 2rem;
   background: #d6eaff;
 }
+
 .dark header {
   background: #2c2c2c;
 }
@@ -51,13 +50,17 @@ h1 {
   font-weight: 600;
   transition: background 0.3s ease;
 }
-.btn:hover { background: #005fa3; }
+
+.btn:hover {
+  background: #005fa3;
+}
 
 .btn.outline {
   background: transparent;
   border: 2px solid #0077cc;
   color: #0077cc;
 }
+
 .btn.outline:hover {
   background: #0077cc;
   color: white;
@@ -88,24 +91,39 @@ h1 {
   box-shadow: 0 4px 14px rgba(0,0,0,0.06);
   flex: 1 1 300px;
   max-width: 400px;
+  min-height: 300px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-.dark .card { background: #2b2b2b; box-shadow: none; }
+
+.dark .card {
+  background: #2b2b2b;
+  box-shadow: none;
+}
 
 .card h2 {
   font-size: 1.4rem;
   margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
 }
-.card ul {
-  list-style: none;
-  padding-left: 0;
+
+.boxed {
+  margin: 10px auto;
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-width: 250px;
+  background-color: #f9f9f9;
 }
-.skills li {
-  margin: 0.5rem 0;
+
+.dark .boxed {
+  background-color: #444;
+  border-color: #666;
 }
 
 .contact {
@@ -119,5 +137,21 @@ footer {
   padding: 2rem 0;
 }
 
-.page { display: none; }
-.page.active { display: block; }
+a {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #005fa3;
+}
+
+.home-link {
+  display: none;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.show-home .home-link {
+  display: inline-block;
+}

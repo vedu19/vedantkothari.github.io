@@ -5,97 +5,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vedant Kothari</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>Hi, I'm Vedant Kothari</h1>
-    <p class="subtitle">MSc Accounting (Data & Analytics) | Analytics Enthusiast</p>
+    <p>MSc Accounting (Data & Analytics) | Analytics Enthusiast</p>
     <div class="cta">
-      <a href="Resume-Vedant-KOTHARI.pdf" class="btn">Resume</a>
-      <a href="https://www.linkedin.com/in/vedantkothari9" target="_blank" class="btn outline">LinkedIn</a>
+      <a class="btn" href="Vedant_Kothari_Resume.pdf" target="_blank">View My Resume</a>
+      <a class="btn outline" href="https://linkedin.com/in/vedantkothari9" target="_blank">LinkedIn</a>
     </div>
-    <button class="dark-toggle" onclick="toggleDarkMode()">🕶 Protect your eyes</button>
-    <nav id="nav-home" style="display: none;"><a href="#" onclick="goHome()">HOME</a></nav>
+    <button id="theme-toggle" class="dark-toggle">Protect your eyes</button>
+    <a id="home-link" href="index.html" class="home-link">HOME</a>
   </header>
 
   <main>
-    <section id="home" class="page active">
-      <div class="grid">
-        <div class="card clickable" onclick="showPage('experience')">
-          <h2>Experience</h2>
-          <div><p>Image Art Gallery</p><p>NCC Telecom</p><p>Paranjape & Co.</p></div>
-        </div>
-        <div class="card clickable" onclick="showPage('projects')">
-          <h2>Projects</h2>
-          <div><p>F1 Predictor</p><p>SMU-X Capstone</p></div>
-        </div>
-        <div class="card">
-          <h2>Skills</h2>
-          <ul class="skills">
-            <p>Python</p>
-            <p>R</p>
-            <p>SQL�</p>
-            <p>Tableau</p>
-            <p>Excel</p>
-          </div>
-        </div>
+    <section class="grid">
+      <div class="card">
+        <h2>Experience</h2>
+        <div class="boxed">Image Art Gallery</div>
+        <div class="boxed">NCC Telecom</div>
+        <div class="boxed">Paranjape & Co.</div>
       </div>
-    </section>
-
-    <section id="experience" class="page">
-      <h2>Experience</h2>
-      <div>
-        <p><strong>Image Art Gallery</strong><br/>Managed sales, handled 50+ clients, curated art, updated catalog</p>
-        <p><strong>NCC Telecom</strong><br/>Maintained transactions, compiled reports, used accounting tools</p>
-        <p><strong>Paranjape & Co.</strong><br/>Tax returns, bank summaries, bookkeeping</p>
+      <div class="card">
+        <h2>Projects</h2>
+        <div class="boxed">F1 Predictor</div>
+        <div class="boxed">SMU-X Capstone</div>
       </div>
-    </section>
-
-    <section id="projects" class="page">
-      <h2>Projects</h2>
-      <div>
-        <p><strong>F1 Predictor</strong><br/>Python ML model for race prediction using driver & track data</p>
-        <p><strong>SMU-X Capstone</strong><br/>Real-world data analytics consulting project</p>
+      <div class="card">
+        <h2>Skills</h2>
+        <div class="boxed">Python</div>
+        <div class="boxed">R</div>
+        <div class="boxed">SQL</div>
+        <div class="boxed">Tableau</div>
+        <div class="boxed">Excel</div>
       </div>
     </section>
 
     <section class="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:vedant.k.2024@msa.smu.edu.sg">vedant.k.2024@msa.smu.edu.sg</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/vedantkothari9" target="_blank">vedantkothari9</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/vedantkothari9" target="_blank">vedantkothari9</a></p>
     </section>
   </main>
 
   <footer>
-    <p>Made with 💙 by Vedant</p>
+    <p>© 2025 Vedant Kothari</p>
   </footer>
-
-  <script>
-    function toggleDarkMode() {
-      const body = document.body;
-      const button = document.querySelector(".dark-toggle");
-      body.classList.toggle("dark");
-
-      if (body.classList.contains("dark")) {
-        button.textContent = "🔦 Blast it!";
-      } else {
-        button.textContent = "🕶 Protect your eyes";
-      }
-    }
-
-    function showPage(id) {
-      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-      document.getElementById("nav-home").style.display = "block";
-    }
-
-    function goHome() {
-      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-      document.getElementById("home").classList.add("active");
-      document.getElementById("nav-home").style.display = "none";
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
