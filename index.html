@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vedant Kothari</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
   <header>
@@ -22,11 +22,32 @@
     <section class="grid">
       <div class="card">
         <h2>💼 Experience</h2>
-        <ul>
-          <li><strong>Image Art Gallery</strong>: Sales, client relationships, catalog</li>
-          <li><strong>NCC Telecom</strong>: Transactions, reporting, accounting tools</li>
-          <li><strong>Paranjape & Co.</strong>: Tax, summaries, bookkeeping</li>
-        </ul>
+        <div class="toggle" onclick="toggleDetails(this)">▶ Image Art Gallery</div>
+        <div class="details">
+          <ul>
+            <li>Managed sales at the physical store</li>
+            <li>Collaborated with 50+ clients on art preferences</li>
+            <li>Updated and maintained online artwork catalog</li>
+          </ul>
+        </div>
+
+        <div class="toggle" onclick="toggleDetails(this)">▶ NCC Telecom</div>
+        <div class="details">
+          <ul>
+            <li>Recorded daily transactions and kept accurate records</li>
+            <li>Compiled data for financial reports</li>
+            <li>Used accounting software to support operations</li>
+          </ul>
+        </div>
+
+        <div class="toggle" onclick="toggleDetails(this)">▶ Paranjape & Co.</div>
+        <div class="details">
+          <ul>
+            <li>Assisted in preparing tax returns and financial summaries</li>
+            <li>Compiled and analyzed client bank statements</li>
+            <li>Used accounting software for transaction entry</li>
+          </ul>
+        </div>
       </div>
 
       <div class="card">
@@ -36,10 +57,15 @@
 
       <div class="card">
         <h2>📂 Projects</h2>
-        <ul>
-          <li><strong>F1 Predictor</strong>: Python ML model to predict race winners</li>
-          <li><strong>SMU-X Capstone</strong>: Analytics for real-world challenge</li>
-        </ul>
+        <div class="toggle" onclick="toggleDetails(this)">▶ F1 Predictor</div>
+        <div class="details">
+          <p>Built a Python ML model to predict Formula 1 race winners using historic race and driver data.</p>
+        </div>
+
+        <div class="toggle" onclick="toggleDetails(this)">▶ SMU-X Capstone</div>
+        <div class="details">
+          <p>Ongoing real-world analytics project solving data challenges with practical tools and models.</p>
+        </div>
       </div>
     </section>
 
@@ -60,9 +86,17 @@
       localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
     }
 
-    // Load saved theme
     if (localStorage.getItem('theme') === 'dark') {
       document.body.classList.add('dark');
+    }
+
+    function toggleDetails(toggleElement) {
+      const details = toggleElement.nextElementSibling;
+      const isOpen = details.style.display === "block";
+      details.style.display = isOpen ? "none" : "block";
+      toggleElement.innerText = isOpen 
+        ? toggleElement.innerText.replace("▼", "▶") 
+        : toggleElement.innerText.replace("▶", "▼");
     }
   </script>
 </body>
