@@ -1,3 +1,4 @@
+/* Base */
 :root {
   --bg-light: #eef6fb;
   --bg-section: #f5faff;
@@ -6,13 +7,14 @@
   --text: #222;
   --text-light: #f1f1f1;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Inter', sans-serif;
-  margin: 0;
   background: var(--bg-light);
   color: var(--text);
-  scroll-behavior: smooth;
   transition: background 0.3s, color 0.3s;
+  line-height: 1.6;
 }
 body.dark {
   background: #1e1e1e;
@@ -22,135 +24,69 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* Hero */
+.dark-toggle {
+  position: fixed; top: 1rem; right: 1rem;
+  padding: 0.4rem 1rem; background: #333; color: white;
+  border: none; border-radius: 20px; cursor: pointer;
+  z-index: 1000;
+}
 .hero {
-  background: var(--bg-hero);
-  text-align: center;
-  padding: 6rem 1rem 8rem;
+  background: var(--bg-hero); text-align: center;
+  padding: 6rem 1rem 4rem;
 }
-.hero h1 {
-  font-size: 3rem;
-  margin: 0;
-  font-weight: 800;
-}
-.hero .tagline {
-  font-size: 1.2rem;
-  margin: 0.5rem 0 2rem;
-}
-.hero .cta {
-  margin-top: 2rem;
-}
-.hero .btn {
-  margin: 0 0.5rem;
-}
-
-/* Sticky nav */
-.sticky-nav {
-  position: sticky;
-  top: 0;
-  background: var(--bg-section);
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  border-bottom: 1px solid #ddd;
-}
-.sticky-nav a {
-  font-weight: 600;
-}
+.hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem; }
+.hero .tagline { font-size: 1.2rem; margin-bottom: 2rem; }
+.hero .cta a { margin: 0 0.5rem; }
 
 /* Sections */
 .section {
-  background: var(--bg-section);
-  padding: 4rem 1rem;
-  max-width: 800px;
-  margin: auto;
+  background: var(--bg-section); padding: 3rem 1rem;
+  max-width: 700px; margin: auto 0;
 }
+.section + .section { margin-top: 2rem; }
 .section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem; margin-bottom: 1rem;
   position: relative;
 }
 .section h2::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: var(--accent);
-  margin: 0.5rem auto 1rem;
+  content: ''; display: block; width: 50px; height: 3px;
+  background: var(--accent); margin: 0.5rem auto;
 }
 
-/* Entries */
-.entry {
-  margin-bottom: 2.5rem;
+/* Accordions */
+.accordion {
+  background: white; cursor: pointer;
+  padding: 1rem; border-radius: 8px;
+  border: 1px solid #ddd; margin: 0.5rem 0;
+  position: relative;
 }
-.entry h3 {
-  font-size: 1.4rem;
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
+.accordion.active { background: #e6f0ff; }
+.accordion .date {
+  font-size: 0.9rem; color: #555;
+  position: absolute; right: 1rem; top: 1rem;
 }
-.entry .date {
-  font-size: 0.9rem;
-  color: #555;
+.panel {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: white; border-left: 4px solid var(--accent);
+  margin-bottom: 0.5rem; padding: 0 1rem;
 }
-.entry ul {
-  margin: 1rem 0 0;
-  padding-left: 1.2rem;
-}
-.entry ul li {
-  margin-bottom: 0.5rem;
-}
+.panel ul { margin: 1rem 0; padding-left: 1.2rem; }
+.panel li { margin-bottom: 0.5rem; }
 
-/* Education */
-#education .entry p {
-  margin: 0.5rem 0 2rem;
-}
-
-/* Skills */
+/* Tags */
 .tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: flex; flex-wrap: wrap; justify-content: center;
   gap: 0.8rem;
+  margin-top: 1rem;
 }
 .tags span {
-  background: white;
-  color: var(--text);
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: white; padding: 0.4rem 0.8rem;
+  border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   font-weight: 500;
 }
 
-/* Projects */
-.project-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-}
-.project-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.project-card h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-}
-.project-card p {
-  margin: 0;
-  color: #555;
-}
-
 /* Contact & Footer */
-.contact p {
-  margin: 0.5rem 0;
-}
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: var(--bg-section);
-  font-size: 0.9rem;
-  color: #777;
+footer, .contact {
+  text-align: center; margin: 2rem auto;
 }

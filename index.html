@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vedant Kothari</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- DARK MODE TOGGLE -->
   <button id="theme-toggle" class="dark-toggle">Protect your eyes</button>
+
   <header class="hero">
     <h1>Vedant Kothari</h1>
     <p class="tagline">MSc Accounting (Data & Analytics)</p>
@@ -19,43 +19,32 @@
     </div>
   </header>
 
-  <nav class="sticky-nav">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
   <main>
-    <!-- ABOUT -->
     <section id="about" class="section">
       <h2>About Me</h2>
-      <p>I’m a data-driven accountant completing an MSc at SMU (Data & Analytics). With internships across finance, art galleries, and telecom, I merge numbers and insights to drive smarter decisions.</p>
+      <p>I’m a data-driven accountant completing an MSc at SMU (Data & Analytics). With internships across finance, art galleries, and telecom, I merge numbers with insights to drive smarter decisions.</p>
     </section>
 
-    <!-- EXPERIENCE -->
     <section id="experience" class="section">
       <h2>Work Experience</h2>
-      <div class="entry">
-        <h3>Image Art Gallery <span class="date">Sep 2023–Nov 2023</span></h3>
+      <div class="accordion">Image Art Gallery <span class="date">Sep 2023–Nov 2023</span></div>
+      <div class="panel">
         <ul>
           <li>Managed in-store sales and client relations.</li>
           <li>Collaborated with 50+ clients on tailored art recommendations.</li>
           <li>Maintained and updated the online artwork catalog.</li>
         </ul>
       </div>
-      <div class="entry">
-        <h3>NCC Telecom <span class="date">Jul 2023–Aug 2023</span></h3>
+      <div class="accordion">NCC Telecom <span class="date">Jul 2023–Aug 2023</span></div>
+      <div class="panel">
         <ul>
           <li>Recorded daily transactions and ensured accuracy.</li>
           <li>Compiled data for monthly financial reports.</li>
           <li>Gained proficiency in leading accounting software.</li>
         </ul>
       </div>
-      <div class="entry">
-        <h3>Paranjape & Co. <span class="date">Jan 2022–Feb 2022</span></h3>
+      <div class="accordion">Paranjape &amp; Co. <span class="date">Jan 2022–Feb 2022</span></div>
+      <div class="panel">
         <ul>
           <li>Assisted tax return preparation and document gathering.</li>
           <li>Compiled and summarized client bank statements.</li>
@@ -64,20 +53,18 @@
       </div>
     </section>
 
-    <!-- EDUCATION -->
     <section id="education" class="section">
       <h2>Education</h2>
-      <div class="entry">
-        <h3>Singapore Management University</h3>
-        <p>MSc in Accounting (Data & Analytics), 2024–2025 • GPA 3.26/4.0</p>
+      <div class="accordion">Singapore Management University <span class="date">2024–2025</span></div>
+      <div class="panel">
+        <p>MSc in Accounting (Data & Analytics) • GPA 3.26/4.0</p>
       </div>
-      <div class="entry">
-        <h3>University of Mumbai</h3>
-        <p>Bachelor of Commerce, 2020–2023 • CGPA 7.4/10</p>
+      <div class="accordion">University of Mumbai <span class="date">2020–2023</span></div>
+      <div class="panel">
+        <p>Bachelor of Commerce • CGPA 7.4/10</p>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" class="section">
       <h2>Skills</h2>
       <div class="tags">
@@ -85,26 +72,21 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects" class="section">
       <h2>Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <h3>F1 Predictor</h3>
-          <p>Built a Python ML model to predict Formula 1 race winners using historical data.</p>
-        </div>
-        <div class="project-card">
-          <h3>SMU-X Capstone</h3>
-          <p>Ongoing analytics consulting project solving real-world business challenges.</p>
-        </div>
+      <div class="accordion">F1 Predictor</div>
+      <div class="panel">
+        <p>Built a Python ML model to predict Formula 1 race winners using historical data.</p>
+      </div>
+      <div class="accordion">SMU-X Capstone</div>
+      <div class="panel">
+        <p>Ongoing analytics consulting project solving real-world business challenges.</p>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="section">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:vedant.k.2024@msa.smu.edu.sg">vedant.k.2024@msa.smu.edu.sg</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/vedantkothari9" target="_blank">vedantkothari9</a></p>
     </section>
   </main>
 
@@ -114,12 +96,25 @@
 
   <script>
     // Dark mode toggle
-    const btn = document.getElementById('theme-toggle');
-    btn.addEventListener('click', () => {
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
       document.body.classList.toggle('dark');
-      btn.textContent = document.body.classList.contains('dark')
+      toggle.textContent = document.body.classList.contains('dark')
         ? 'Blast it!'
         : 'Protect your eyes';
+    });
+
+    // Accordion functionality
+    document.querySelectorAll('.accordion').forEach(acc => {
+      acc.addEventListener('click', () => {
+        acc.classList.toggle('active');
+        let panel = acc.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
     });
   </script>
 </body>
