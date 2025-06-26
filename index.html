@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,58 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vedant Kothari</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>Hi, I'm Vedant Kothari</h1>
-    <p class="subtitle">MSc Accounting (Data & Analytics) | Analytics Enthusiast</p>
+    <p class="subtitle">MSc Accounting (Data & Analytics)</p>
     <div class="cta">
-      <a href="Resume-Vedant-KOTHARI.pdf" class="btn">📄 Resume</a>
-      <a href="https://www.linkedin.com/in/vedantkothari9" target="_blank" class="btn outline">🔗 LinkedIn</a>
+      <a href="Resume-Vedant-KOTHARI.pdf" class="btn">Resume</a>
+      <a href="https://www.linkedin.com/in/vedantkothari9" target="_blank" class="btn outline">LinkedIn</a>
     </div>
-    <button class="dark-toggle" onclick="toggleDarkMode()">🕶 Protect your eyes</button>
-    <nav id="nav-home" style="display: none;"><a href="#" onclick="goHome()">HOME</a></nav>
   </header>
 
   <main>
-    <section id="home" class="page active">
-      <div class="grid">
-        <div class="card clickable" onclick="showPage('experience')">
-          <h2>Experience</h2>
-          <div><p>Image Art Gallery</p><p>NCC Telecom</p><p>Paranjape & Co.</p></div>
+    <section class="grid">
+      <a href="experience.html" class="card">
+        <h2>Experience</h2>
+      </a>
+      <a href="projects.html" class="card">
+        <h2>Projects</h2>
+      </a>
+      <div class="card">
+        <h2>Skills</h2>
+        <div>
+          <p>Python</p>
+          <p>R</p>
+          <p>SQL</p>
+          <p>Tableau</p>
+          <p>Excel</p>
         </div>
-        <div class="card clickable" onclick="showPage('projects')">
-          <h2>Projects</h2>
-          <div><p>F1 Predictor</p><p>SMU-X Capstone</p></div>
-        </div>
-        <div class="card">
-          <h2>Skills</h2>
-          <ul class="skills">
-            <p>Python 🐍</p>
-            <p>R 📊</p>
-            <p>SQL 💾</p>
-            <p>Tableau 📈</p>
-            <p>Excel 📎</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="page">
-      <h2>Experience</h2>
-      <div>
-        <p><strong>Image Art Gallery</strong><br/>Managed sales, handled 50+ clients, curated art, updated catalog</p>
-        <p><strong>NCC Telecom</strong><br/>Maintained transactions, compiled reports, used accounting tools</p>
-        <p><strong>Paranjape & Co.</strong><br/>Tax returns, bank summaries, bookkeeping</p>
-      </div>
-    </section>
-
-    <section id="projects" class="page">
-      <h2>Projects</h2>
-      <div>
-        <p><strong>F1 Predictor</strong><br/>Python ML model for race prediction using driver & track data</p>
-        <p><strong>SMU-X Capstone</strong><br/>Real-world data analytics consulting project</p>
       </div>
     </section>
 
@@ -69,33 +45,7 @@
   </main>
 
   <footer>
-    <p>Made with 💙 by Vedant</p>
+    <p>© 2025 Vedant Kothari</p>
   </footer>
-
-  <script>
-    function toggleDarkMode() {
-      const body = document.body;
-      const button = document.querySelector(".dark-toggle");
-      body.classList.toggle("dark");
-
-      if (body.classList.contains("dark")) {
-        button.textContent = "🔦 Blast it!";
-      } else {
-        button.textContent = "🕶 Protect your eyes";
-      }
-    }
-
-    function showPage(id) {
-      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-      document.getElementById("nav-home").style.display = "block";
-    }
-
-    function goHome() {
-      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-      document.getElementById("home").classList.add("active");
-      document.getElementById("nav-home").style.display = "none";
-    }
-  </script>
 </body>
 </html>
