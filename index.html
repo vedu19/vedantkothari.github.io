@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,23 +21,15 @@
   </header>
 
   <main>
-    <!-- Home Section -->
     <section id="home" class="page active">
       <div class="grid">
         <div class="card clickable" onclick="showPage('experience')">
           <h2>💼 Experience</h2>
-          <ul>
-            <li>Image Art Gallery</li>
-            <li>NCC Telecom</li>
-            <li>Paranjape & Co.</li>
-          </ul>
+          <ul><li>Image Art Gallery</li><li>NCC Telecom</li><li>Paranjape & Co.</li></ul>
         </div>
         <div class="card clickable" onclick="showPage('projects')">
           <h2>📂 Projects</h2>
-          <ul>
-            <li>F1 Predictor</li>
-            <li>SMU-X Capstone</li>
-          </ul>
+          <ul><li>F1 Predictor</li><li>SMU-X Capstone</li></ul>
         </div>
         <div class="card">
           <h2>🛠 Skills</h2>
@@ -51,7 +44,6 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="page">
       <h2>💼 Experience</h2>
       <ul>
@@ -61,7 +53,6 @@
       </ul>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="page">
       <h2>📂 Projects</h2>
       <ul>
@@ -70,7 +61,6 @@
       </ul>
     </section>
 
-    <!-- Contact -->
     <section class="contact">
       <h2>📬 Contact</h2>
       <p>Email: <a href="mailto:vedant.k.2024@msa.smu.edu.sg">vedant.k.2024@msa.smu.edu.sg</a></p>
@@ -79,24 +69,32 @@
   </main>
 
   <footer>
-    <p>© 2025 Vedant Kothari</p>
+    <p>Made with 💙 by Vedant</p>
   </footer>
 
   <script>
     function toggleDarkMode() {
-      document.body.classList.toggle("dark");
+      const body = document.body;
+      const button = document.querySelector(".dark-toggle");
+      body.classList.toggle("dark");
+
+      if (body.classList.contains("dark")) {
+        button.textContent = "🔦 Blast it!";
+      } else {
+        button.textContent = "🕶 Protect your eyes";
+      }
     }
 
-    function showPage(sectionId) {
-      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
-      document.getElementById('nav-home').style.display = "block";
+    function showPage(id) {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      document.getElementById("nav-home").style.display = "block";
     }
 
     function goHome() {
-      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-      document.getElementById('home').classList.add('active');
-      document.getElementById('nav-home').style.display = "none";
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById("home").classList.add("active");
+      document.getElementById("nav-home").style.display = "none";
     }
   </script>
 </body>
