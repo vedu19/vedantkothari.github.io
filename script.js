@@ -19,6 +19,57 @@ toggle.onclick = () => {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 };
 
+// Typing Effect for Tagline
+const taglines = [
+  "MSc Accounting (Data & Analytics)",
+  "Financial Data Analyst",
+  "Python & R Enthusiast",
+  "F1 Analytics Explorer",
+  "Building Data-Driven Solutions"
+];
+
+let taglineIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100;
+
+const typingTextElement = document.querySelector('.typing-text');
+const cursorElement = document.querySelector('.typing-cursor');
+
+function typeWriter() {
+  const currentTagline = taglines[taglineIndex];
+  
+  if (isDeleting) {
+    // Remove characters
+    typingTextElement.textContent = currentTagline.substring(0, charIndex - 1);
+    charIndex--;
+    typingSpeed = 50;
+  } else {
+    // Add characters
+    typingTextElement.textContent = currentTagline.substring(0, charIndex + 1);
+    charIndex++;
+    typingSpeed = 100;
+  }
+  
+  // When word is complete
+  if (!isDeleting && charIndex === currentTagline.length) {
+    // Pause at end
+    typingSpeed = 2000;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    taglineIndex = (taglineIndex + 1) % taglines.length;
+    typingSpeed = 500; // Pause before typing next
+  }
+  
+  setTimeout(typeWriter, typingSpeed);
+}
+
+// Start typing effect after page loads
+window.addEventListener('load', () => {
+  setTimeout(typeWriter, 1000);
+});
+
 // Smooth scroll with offset for sticky nav
 document.querySelectorAll('.sticky-nav a').forEach(element => {
   element.onclick = e => {
