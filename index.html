@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vedant Kothari</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
@@ -15,8 +15,8 @@
       <a href="Resume-Vedant-KOTHARI.pdf" class="btn">📄 Resume</a>
       <a href="https://www.linkedin.com/in/vedantkothari9" target="_blank" class="btn outline">🔗 LinkedIn</a>
     </div>
-    <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Toggle Theme</button>
-    <nav><a href="#" onclick="goHome()">🏠 HOME</a></nav>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🕶 Protect your eyes</button>
+    <nav id="nav-home" style="display: none;"><a href="#" onclick="goHome()">🏠 HOME</a></nav>
   </header>
 
   <main>
@@ -25,13 +25,28 @@
       <div class="grid">
         <div class="card clickable" onclick="showPage('experience')">
           <h2>💼 Experience</h2>
+          <ul>
+            <li>Image Art Gallery</li>
+            <li>NCC Telecom</li>
+            <li>Paranjape & Co.</li>
+          </ul>
         </div>
         <div class="card clickable" onclick="showPage('projects')">
           <h2>📂 Projects</h2>
+          <ul>
+            <li>F1 Predictor</li>
+            <li>SMU-X Capstone</li>
+          </ul>
         </div>
         <div class="card">
           <h2>🛠 Skills</h2>
-          <p>Python 🐍 • R 📊 • SQL 💾 • Tableau 📈 • Excel 📎 • Communication 🗣</p>
+          <ul class="skills">
+            <li>Python 🐍</li>
+            <li>R 📊</li>
+            <li>SQL 💾</li>
+            <li>Tableau 📈</li>
+            <li>Excel 📎</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -64,26 +79,24 @@
   </main>
 
   <footer>
-    <p>Made with calm energy ✨ | © 2025 Vedant Kothari</p>
+    <p>© 2025 Vedant Kothari</p>
   </footer>
 
   <script>
     function toggleDarkMode() {
-      document.body.classList.toggle('dark');
-      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+      document.body.classList.toggle("dark");
     }
 
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark');
-    }
-
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+    function showPage(sectionId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+      document.getElementById('nav-home').style.display = "block";
     }
 
     function goHome() {
-      showPage('home');
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById('home').classList.add('active');
+      document.getElementById('nav-home').style.display = "none";
     }
   </script>
 </body>
