@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vedant Kothari</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Dark Mode Toggle -->
+  <!-- Dark-mode toggle -->
   <button id="theme-toggle" class="dark-toggle">Protect your eyes</button>
 
-  <!-- Hero with Typewriter Effect -->
+  <!-- Hero -->
   <header class="hero">
-    <h1 id="hero-title"></h1>
+    <h1 id="hero-title">Hi, I’m Vedant Kothari</h1>
     <p class="tagline">MSc Accounting (Data & Analytics)</p>
     <div class="cta">
       <a href="Resume-Vedant-KOTHARI.pdf" class="btn">View My Resume</a>
@@ -21,7 +21,7 @@
     </div>
   </header>
 
-  <!-- Sticky Navigation -->
+  <!-- Sticky nav -->
   <nav class="sticky-nav">
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
@@ -32,16 +32,17 @@
   </nav>
 
   <main>
-    <!-- ABOUT -->
+    <!-- About -->
     <section id="about" class="section">
       <h2>About Me</h2>
       <p>I’m a data-driven accountant completing an MSc at SMU (Data & Analytics). With internships across finance, art galleries, and telecom, I merge numbers with insights to drive smarter decisions.</p>
     </section>
 
-    <!-- EXPERIENCE (Accordion) -->
+    <!-- Experience -->
     <section id="experience" class="section">
       <h2>Work Experience</h2>
-      <div class="accordion">Image Art Gallery <span class="date">Sep 2023–Nov 2023</span></div>
+      <div class="accordion">Image Art Gallery</div>
+      <div class="date">Sep 2023–Nov 2023</div>
       <div class="panel">
         <ul>
           <li>Managed in-store sales and client relations.</li>
@@ -50,7 +51,8 @@
         </ul>
       </div>
 
-      <div class="accordion">NCC Telecom <span class="date">Jul 2023–Aug 2023</span></div>
+      <div class="accordion">NCC Telecom</div>
+      <div class="date">Jul 2023–Aug 2023</div>
       <div class="panel">
         <ul>
           <li>Recorded daily transactions and ensured accuracy.</li>
@@ -59,7 +61,8 @@
         </ul>
       </div>
 
-      <div class="accordion">Paranjape &amp; Co. <span class="date">Jan 2022–Feb 2022</span></div>
+      <div class="accordion">Paranjape &amp; Co.</div>
+      <div class="date">Jan 2022–Feb 2022</div>
       <div class="panel">
         <ul>
           <li>Assisted tax return preparation and document gathering.</li>
@@ -69,33 +72,31 @@
       </div>
     </section>
 
-    <!-- EDUCATION (Accordion) -->
+    <!-- Education -->
     <section id="education" class="section">
       <h2>Education</h2>
-      <div class="accordion">Singapore Management University <span class="date">2024–2025</span></div>
+      <div class="accordion">Singapore Management University</div>
+      <div class="date">2024–2025</div>
       <div class="panel">
         <p>MSc in Accounting (Data & Analytics) • GPA 3.26/4.0</p>
       </div>
 
-      <div class="accordion">University of Mumbai <span class="date">2020–2023</span></div>
+      <div class="accordion">University of Mumbai</div>
+      <div class="date">2020–2023</div>
       <div class="panel">
         <p>Bachelor of Commerce • CGPA 7.4/10</p>
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- Skills -->
     <section id="skills" class="section">
       <h2>Skills</h2>
       <div class="tags">
-        <span>Python</span>
-        <span>R</span>
-        <span>SQL</span>
-        <span>Tableau</span>
-        <span>Excel</span>
+        <span>Python</span><span>R</span><span>SQL</span><span>Tableau</span><span>Excel</span>
       </div>
     </section>
 
-    <!-- PROJECTS (Accordion) -->
+    <!-- Projects -->
     <section id="projects" class="section">
       <h2>Projects</h2>
       <div class="accordion">F1 Predictor</div>
@@ -109,7 +110,7 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- Contact -->
     <section id="contact" class="section">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:vedant.k.2024@msa.smu.edu.sg">vedant.k.2024@msa.smu.edu.sg</a></p>
@@ -121,70 +122,54 @@
   </footer>
 
   <script>
-  // 1. Dark mode toggle
-  const themeBtn = document.getElementById('theme-toggle');
-  themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    themeBtn.textContent = document.body.classList.contains('dark')
-      ? 'Blast it!'
-      : 'Protect your eyes';
-  });
+    // Dark-mode toggle
+    document.getElementById('theme-toggle').onclick = e => {
+      document.body.classList.toggle('dark');
+      e.target.textContent = document.body.classList.contains('dark')
+        ? 'Blast it!'
+        : 'Protect your eyes';
+    };
 
-  // 2. Smooth scroll + scroll‐spy
-  document.querySelectorAll('.sticky-nav a').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelector(link.getAttribute('href'))
-        .scrollIntoView({ behavior: 'smooth' });
+    // Smooth scroll + scroll-spy
+    document.querySelectorAll('.sticky-nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href'))
+          .scrollIntoView({ behavior: 'smooth' });
+      });
     });
-  });
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.sticky-nav a');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const id = entry.target.id;
-      const link = document.querySelector(`.sticky-nav a[href="#${id}"]`);
-      if (entry.isIntersecting) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }, { threshold: 0.6 });
-  sections.forEach(sec => observer.observe(sec));
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.sticky-nav a');
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        document.querySelector(`.sticky-nav a[href="#${id}"]`)
+          .classList.toggle('active', entry.isIntersecting);
+      });
+    }, { threshold: 0.6 });
+    sections.forEach(s => spy.observe(s));
 
-  // 3. Reveal on scroll
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  sections.forEach(sec => revealObserver.observe(sec));
+    // Reveal on scroll
+    const reveal = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.classList.add('revealed');
+          reveal.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(s => reveal.observe(s));
 
-  // 4. Typewriter effect
-  const titleEl = document.getElementById('hero-title');
-  const fullText = "Vedant Kothari";
-  let i = 0;
-  (function type() {
-    if (i < fullText.length) {
-      titleEl.textContent += fullText.charAt(i++);
-      setTimeout(type, 100);
-    }
-  })();
-
-  // 5. Accordion toggles
-  document.querySelectorAll('.accordion').forEach(acc => {
-    acc.addEventListener('click', () => {
-      acc.classList.toggle('active');
-      const panel = acc.nextElementSibling;
-      panel.style.maxHeight = panel.style.maxHeight
-        ? null
-        : panel.scrollHeight + 'px';
+    // Accordion
+    document.querySelectorAll('.accordion').forEach(acc => {
+      acc.onclick = () => {
+        acc.classList.toggle('active');
+        const p = acc.nextElementSibling.nextElementSibling; // panel
+        p.style.maxHeight = p.style.maxHeight
+          ? null
+          : p.scrollHeight + 'px';
+      };
     });
-  });
   </script>
 </body>
 </html>
