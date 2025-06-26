@@ -23,8 +23,6 @@ toggle.onclick = () => {
 const taglines = [
   "MSc Accounting (Data & Analytics)",
   "Financial Data Analyst",
-  "Python & R Enthusiast",
-  "F1 Analytics Explorer",
   "Building Data-Driven Solutions"
 ];
 
