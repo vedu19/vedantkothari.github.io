@@ -8,56 +8,62 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <h1>Vedant Kothari</h1>
-    <p class="tagline">Aspiring Data-Driven Accountant • MSc Accounting (Data & Analytics)</p>
+  <header>
+    <h1>👋 Hi, I'm Vedant Kothari</h1>
+    <p class="subtitle">MSc Accounting (Data & Analytics) | Analytics Enthusiast</p>
     <div class="cta">
-      <a href="Resume-Vedant-KOTHARI.pdf" class="btn">📄 Download Resume</a>
+      <a href="Resume-Vedant-KOTHARI.pdf" class="btn">📄 Resume</a>
       <a href="https://www.linkedin.com/in/vedantkothari9" target="_blank" class="btn outline">🔗 LinkedIn</a>
     </div>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Toggle Theme</button>
   </header>
 
   <main>
-    <section class="section fade-in">
-      <h2>About Me</h2>
-      <p>
-        I’m a data-savvy MSc Accounting student at SMU with a B.Com background and hands-on experience in finance, analytics, and software. 
-        I’ve interned across firms like Image Art Gallery, NCC Telecom, and Paranjape & Co., while building data projects in Python, R, and Tableau.
-      </p>
-    </section>
+    <section class="grid">
+      <div class="card">
+        <h2>💼 Experience</h2>
+        <ul>
+          <li><strong>Image Art Gallery</strong>: Sales, client relationships, catalog</li>
+          <li><strong>NCC Telecom</strong>: Transactions, reporting, accounting tools</li>
+          <li><strong>Paranjape & Co.</strong>: Tax, summaries, bookkeeping</li>
+        </ul>
+      </div>
 
-    <section class="section fade-in">
-      <h2>Experience</h2>
-      <div class="card-list">
-        <div class="card"><strong>Image Art Gallery</strong><br/>Sales, client relations, online catalog management</div>
-        <div class="card"><strong>NCC Telecom</strong><br/>Transaction recording, report support, accounting systems</div>
-        <div class="card"><strong>Paranjape & Co.</strong><br/>Tax prep, bank summaries, bookkeeping</div>
+      <div class="card">
+        <h2>🛠 Skills</h2>
+        <p>Python 🐍 • R 📊 • SQL 💾 • Tableau 📈 • Excel 📎 • Communication 🗣</p>
+      </div>
+
+      <div class="card">
+        <h2>📂 Projects</h2>
+        <ul>
+          <li><strong>F1 Predictor</strong>: Python ML model to predict race winners</li>
+          <li><strong>SMU-X Capstone</strong>: Analytics for real-world challenge</li>
+        </ul>
       </div>
     </section>
 
-    <section class="section fade-in">
-      <h2>Projects</h2>
-      <div class="card-list">
-        <div class="card"><strong>F1 Race Predictor</strong><br/>ML model predicting Formula 1 winners using Python</div>
-        <div class="card"><strong>SMU-X Capstone</strong><br/>Ongoing analytics project solving a real-world challenge</div>
-      </div>
-    </section>
-
-    <section class="section fade-in">
-      <h2>Skills</h2>
-      <p class="skills">Python • R • SQL • Tableau • MS Excel • Accounting • Data Analysis • Communication</p>
-    </section>
-
-    <section class="section fade-in">
-      <h2>Contact</h2>
+    <section class="contact">
+      <h2>📬 Contact</h2>
       <p>Email: <a href="mailto:vedant.k.2024@msa.smu.edu.sg">vedant.k.2024@msa.smu.edu.sg</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/vedantkothari9" target="_blank">vedantkothari9</a></p>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Vedant Kothari</p>
-    <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌓 Toggle Dark Mode</button>
+    <p>Made with calm energy ✨ | © 2025 Vedant Kothari</p>
   </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+  </script>
 </body>
 </html>

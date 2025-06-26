@@ -1,33 +1,35 @@
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
-  padding: 0;
-  background: white;
-  color: #111;
+  background: #fff8f0;
+  color: #222;
   transition: background 0.3s, color 0.3s;
 }
 
 .dark {
-  background: #111;
-  color: #eee;
+  background: #1e1e1e;
+  color: #f1f1f1;
 }
 
-.hero {
-  padding: 4rem 1rem 3rem;
+header {
   text-align: center;
-  background: #f5f5f7;
+  padding: 3rem 1rem 2rem;
+  background: #ffe7cc;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
+.dark header {
+  background: #2c2c2c;
+}
+
+h1 {
+  font-size: 2.2rem;
   font-weight: 800;
-  margin: 0;
+  margin-bottom: 0.5rem;
 }
 
-.tagline {
-  font-size: 1.2rem;
-  font-weight: 400;
-  margin: 0.5rem 0 2rem;
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 
 .cta {
@@ -35,81 +37,85 @@ body {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
 .btn {
-  padding: 0.7rem 1.2rem;
-  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  background: #ff8c42;
+  color: white;
   text-decoration: none;
   font-weight: 600;
-  background: #007aff;
-  color: white;
   transition: background 0.3s ease;
 }
 
 .btn:hover {
-  background: #005fcc;
+  background: #e8752e;
 }
 
 .btn.outline {
   background: transparent;
-  border: 2px solid #007aff;
-  color: #007aff;
+  border: 2px solid #ff8c42;
+  color: #ff8c42;
 }
 
 .btn.outline:hover {
-  background: #007aff;
+  background: #ff8c42;
   color: white;
-}
-
-.section {
-  max-width: 800px;
-  margin: auto;
-  padding: 3rem 1.5rem;
-  border-bottom: 1px solid #eaeaea;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.2rem;
-  font-weight: 600;
-}
-
-.card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.card {
-  padding: 1rem;
-  background: #f0f0f0;
-  border-radius: 10px;
-  transition: background 0.3s;
-}
-
-.dark .card {
-  background: #1e1e1e;
-}
-
-.skills {
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  padding: 2rem;
-  color: #888;
 }
 
 .dark-toggle {
   margin-top: 1rem;
   padding: 0.4rem 1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 20px;
   background: #333;
   color: white;
   cursor: pointer;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  flex: 1 1 300px;
+  max-width: 400px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.dark .card {
+  background: #2b2b2b;
+  box-shadow: none;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.contact {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  padding: 2rem 0;
 }
