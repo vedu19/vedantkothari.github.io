@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Vedant Kothari</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Dark-mode toggle -->
+  <!-- Dark/Lite Toggle -->
   <button id="theme-toggle" class="dark-toggle">Protect your eyes</button>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <header class="hero">
-    <h1 id="hero-title">Hi, I’m Vedant Kothari</h1>
+    <h1>Hi, I’m Vedant Kothari</h1>
     <p class="tagline">MSc Accounting (Data & Analytics)</p>
     <div class="cta">
       <a href="Resume-Vedant-KOTHARI.pdf" class="btn">View My Resume</a>
@@ -21,7 +21,19 @@
     </div>
   </header>
 
-  <!-- Sticky nav -->
+  <!-- MOBILE NAV BAR -->
+  <nav class="mobile-nav">
+    <select onchange="location = this.value">
+      <option value="#about">About</option>
+      <option value="#experience">Experience</option>
+      <option value="#education">Education</option>
+      <option value="#skills">Skills</option>
+      <option value="#projects">Projects</option>
+      <option value="#contact">Contact</option>
+    </select>
+  </nav>
+
+  <!-- STICKY NAV -->
   <nav class="sticky-nav">
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
@@ -32,38 +44,30 @@
   </nav>
 
   <main>
-    <!-- About -->
+    <!-- ABOUT -->
     <section id="about" class="section">
       <h2>About Me</h2>
       <p>I’m a data-driven accountant completing an MSc at SMU (Data & Analytics). With internships across finance, art galleries, and telecom, I merge numbers with insights to drive smarter decisions.</p>
     </section>
 
-    <!-- Experience -->
+    <!-- EXPERIENCE -->
     <section id="experience" class="section">
       <h2>Work Experience</h2>
-      <div class="accordion">Image Art Gallery</div>
-      <div class="date">Sep 2023–Nov 2023</div>
-      <div class="panel">
+      <div class="accordion" data-title="Image Art Gallery" data-date="Sep 2023–Nov 2023">
         <ul>
           <li>Managed in-store sales and client relations.</li>
           <li>Collaborated with 50+ clients on tailored art recommendations.</li>
           <li>Maintained and updated the online artwork catalog.</li>
         </ul>
       </div>
-
-      <div class="accordion">NCC Telecom</div>
-      <div class="date">Jul 2023–Aug 2023</div>
-      <div class="panel">
+      <div class="accordion" data-title="NCC Telecom" data-date="Jul 2023–Aug 2023">
         <ul>
           <li>Recorded daily transactions and ensured accuracy.</li>
           <li>Compiled data for monthly financial reports.</li>
           <li>Gained proficiency in leading accounting software.</li>
         </ul>
       </div>
-
-      <div class="accordion">Paranjape &amp; Co.</div>
-      <div class="date">Jan 2022–Feb 2022</div>
-      <div class="panel">
+      <div class="accordion" data-title="Paranjape &amp; Co." data-date="Jan 2022–Feb 2022">
         <ul>
           <li>Assisted tax return preparation and document gathering.</li>
           <li>Compiled and summarized client bank statements.</li>
@@ -72,23 +76,18 @@
       </div>
     </section>
 
-    <!-- Education -->
+    <!-- EDUCATION -->
     <section id="education" class="section">
       <h2>Education</h2>
-      <div class="accordion">Singapore Management University</div>
-      <div class="date">2024–2025</div>
-      <div class="panel">
+      <div class="accordion" data-title="Singapore Management University" data-date="2024–2025">
         <p>MSc in Accounting (Data & Analytics) • GPA 3.26/4.0</p>
       </div>
-
-      <div class="accordion">University of Mumbai</div>
-      <div class="date">2020–2023</div>
-      <div class="panel">
+      <div class="accordion" data-title="University of Mumbai" data-date="2020–2023">
         <p>Bachelor of Commerce • CGPA 7.4/10</p>
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- SKILLS -->
     <section id="skills" class="section">
       <h2>Skills</h2>
       <div class="tags">
@@ -96,21 +95,18 @@
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <section id="projects" class="section">
       <h2>Projects</h2>
-      <div class="accordion">F1 Predictor</div>
-      <div class="panel">
+      <div class="accordion" data-title="F1 Predictor">
         <p>Built a Python ML model to predict Formula 1 race winners using historical data.</p>
       </div>
-
-      <div class="accordion">SMU-X Capstone</div>
-      <div class="panel">
+      <div class="accordion" data-title="SMU-X Capstone">
         <p>Ongoing analytics consulting project solving real-world business challenges.</p>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact" class="section">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:vedant.k.2024@msa.smu.edu.sg">vedant.k.2024@msa.smu.edu.sg</a></p>
@@ -122,54 +118,41 @@
   </footer>
 
   <script>
-    // Dark-mode toggle
-    document.getElementById('theme-toggle').onclick = e => {
+    // Dark mode
+    const toggle = document.getElementById('theme-toggle');
+    toggle.onclick = () => {
       document.body.classList.toggle('dark');
-      e.target.textContent = document.body.classList.contains('dark')
-        ? 'Blast it!'
-        : 'Protect your eyes';
+      toggle.textContent = document.body.classList.contains('dark') ? 'Blast it!' : 'Protect your eyes';
     };
 
-    // Smooth scroll + scroll-spy
-    document.querySelectorAll('.sticky-nav a').forEach(link => {
-      link.addEventListener('click', e => {
+    // Smooth scroll + spy
+    document.querySelectorAll('.sticky-nav a').forEach(a=>{
+      a.onclick=e=>{
         e.preventDefault();
-        document.querySelector(link.getAttribute('href'))
-          .scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-    const sections = document.querySelectorAll('.section');
-    const navLinks = document.querySelectorAll('.sticky-nav a');
-    const spy = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const id = entry.target.id;
-        document.querySelector(`.sticky-nav a[href="#${id}"]`)
-          .classList.toggle('active', entry.isIntersecting);
-      });
-    }, { threshold: 0.6 });
-    sections.forEach(s => spy.observe(s));
-
-    // Reveal on scroll
-    const reveal = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (en.isIntersecting) {
-          en.target.classList.add('revealed');
-          reveal.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(s => reveal.observe(s));
-
-    // Accordion
-    document.querySelectorAll('.accordion').forEach(acc => {
-      acc.onclick = () => {
-        acc.classList.toggle('active');
-        const p = acc.nextElementSibling.nextElementSibling; // panel
-        p.style.maxHeight = p.style.maxHeight
-          ? null
-          : p.scrollHeight + 'px';
+        document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
       };
     });
+    const secs=document.querySelectorAll('.section'),
+          links=document.querySelectorAll('.sticky-nav a');
+    new IntersectionObserver(en=>{
+      en.forEach(entry=>{
+        links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')===`#${entry.target.id}`&&entry.isIntersecting));
+      });
+    },{threshold:0.5}).observe(document.body);
+
+    // Accordions
+    document.querySelectorAll('.accordion').forEach(ac=>{
+      const title=ac.dataset.title, date=ac.dataset.date;
+      ac.innerHTML=`<div class="hdr"><span>${title}</span><span class="dt">${date||''}</span></div>`+ac.innerHTML;
+      ac.onclick=()=>{
+        ac.classList.toggle('open');
+        ac.style.maxHeight=ac.classList.contains('open')?ac.scrollHeight+'px':null;
+      };
+    });
+
+    // Reveal on scroll
+    new IntersectionObserver(en=>en.forEach(e=>e.isIntersecting&&(e.target.classList.add('revealed'),this.unobserve(e.target))),{threshold:0.2})
+      .observe(document.querySelector('main'));
   </script>
 </body>
 </html>
