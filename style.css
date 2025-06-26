@@ -1,3 +1,10 @@
+/* ---------- Global Reset for Link Styling ---------- */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Body & Dark Mode ---------- */
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -10,8 +17,8 @@ body {
   background: #1e1e1e;
   color: #f1f1f1;
 }
-a { color: inherit; text-decoration: none; }
 
+/* ---------- Header ---------- */
 header {
   padding: 3rem 1rem 2rem;
   background: #d6eaff;
@@ -20,6 +27,7 @@ header {
   background: #2c2c2c;
 }
 
+/* ---------- Typography ---------- */
 h1 {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
@@ -29,6 +37,7 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
+/* ---------- Buttons ---------- */
 .cta {
   display: flex;
   justify-content: center;
@@ -57,6 +66,7 @@ h1 {
   color: white;
 }
 
+/* ---------- Dark-mode Toggle ---------- */
 .dark-toggle {
   margin-top: 1rem;
   padding: 0.4rem 1rem;
@@ -67,6 +77,7 @@ h1 {
   cursor: pointer;
 }
 
+/* ---------- Bento Grid ---------- */
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -75,9 +86,13 @@ h1 {
   padding: 3rem 1rem;
 }
 
+/* ---------- Bento Cards ---------- */
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* vertically center title + list */
   background: white;
-  padding: 2rem;
+  padding: 2.5rem 2rem;       /* a bit more top/bottom padding for breathing room */
   border-radius: 20px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.06);
   flex: 1 1 300px;
@@ -94,6 +109,7 @@ h1 {
   box-shadow: none;
 }
 
+/* ---------- Card Titles ---------- */
 .card h2 {
   font-size: 1.4rem;
   margin-bottom: 1rem;
@@ -101,17 +117,18 @@ h1 {
   padding-bottom: 0.5rem;
 }
 
+/* ---------- List Items Inside Cards ---------- */
 .item-list p {
   margin: 0.75rem 0;
 }
 
+/* ---------- Contact & Footer ---------- */
 .contact {
   padding: 2rem 1rem 3rem;
 }
 .contact a:hover {
   text-decoration: underline;
 }
-
 footer {
   padding: 2rem 0;
   font-size: 0.9rem;
